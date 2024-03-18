@@ -1,5 +1,5 @@
 function debounce(callback, delay, immediate = false) {
-let timeoutId;
+  let timeoutId;
 
   return function(...args) {
     const context = this;
@@ -14,12 +14,13 @@ let timeoutId;
     const callNow = immediate && !timeoutId;
 
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(later, delay);
 
     if (callNow) {
       callback.apply(context, args);
     }
-  };  
+
+    timeoutId = setTimeout(later, delay);
+  };
 }
-  
-  module.exports = debounce;
+
+module.exports = debounce;
